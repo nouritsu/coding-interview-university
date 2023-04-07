@@ -2,7 +2,6 @@
 #define VECTOR_H
 
 #include <iostream>
-
 #define BASE_VECTOR_SIZE 16
 
 template <class T>
@@ -11,27 +10,22 @@ class Vector {
     Vector(T d);  // constructor, initialses array to default value x
     ~Vector();    // destructor
 
-    // Methods to get basic stats
     int size();       // returns number of elements in vector
     int capacity();   // returns capacity of vector
     bool is_empty();  // returns true if vector is empty
     void print();     // prints array, formatted
 
-    // Methods to insert elements
     void insert(int idx, T x);  // insert x at idx, shift elements right
     void push_back(T x);        // insert x at end of vector
     void push_front(T x);       // insert x at start of vector
 
-    // Get-Set methods
     T at(int idx);           // get element at idx
     void put(int idx, T x);  // put x at idx, replaces if idx is not empty
 
-    // Methods for removal
     void delete_at(int idx);  // remove element at idx, shift elements to left
     void delete_all(T x);     // remove all instances of x
     T pop();                  // remove last element and return it
 
-    // Methods for searching
     int find(T x);  // linear search for x, returns -1 if not present
 
    private:
@@ -127,6 +121,7 @@ template <class T>
 void Vector<T>::delete_at(int idx) {
     for (int i = idx; i < c - 1; *(arr + i) = *(arr + i + 1), i++)
         ;
+    s--;
 }
 
 template <class T>

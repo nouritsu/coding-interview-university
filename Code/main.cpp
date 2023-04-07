@@ -1,23 +1,21 @@
 #include <iostream>
 #include <string>
 
+#include "./Linked_List/Linked_List.h"
 #include "./Vector/Vector.h"
 
 using namespace std;
 
 int main(void) {
-    Vector<int> vec(0);
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-    vec.push_back(6);
-    vec.push_back(7);
-    vec.push_back(8);
-    vec.push_back(9);
-    vec.print();
-    vec.pop();
-    vec.print();
+    LinkedList<int> l;
+    l.push_back(1);
+    l.push_back(2);
+    l.push_back(3);
+    l.push_back(4);
+    l.push_back(5);
+    l.push_back(6);
+    l.push_front(0);
+    l.print();
+
     return 0;
 }
