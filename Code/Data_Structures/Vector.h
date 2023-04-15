@@ -7,7 +7,7 @@
 template <class T>
 class Vector {
    public:
-    Vector(T d);  // constructor, initialses array to default value x
+    Vector(T d);  // constructor
     ~Vector();    // destructor
 
     int size();       // returns number of elements in vector
@@ -23,7 +23,7 @@ class Vector {
     void put(int idx, T x);  // put x at idx, replaces if idx is not empty
 
     void delete_at(int idx);  // remove element at idx, shift elements to left
-    void delete_all(T x);     // remove all instances of x
+    void delete_item(T x);    // remove all instances of x
     T pop();                  // remove last element and return it
 
     int find(T x);  // linear search for x, returns -1 if not present
@@ -74,7 +74,7 @@ void Vector<T>::print() {
         }
         std::cout << ", ";
     }
-    std::cout << "]" << std::endl;
+    std::cout << "] (Size: " << s << ", Capacity: " << c << ')' << std::endl;
 }
 
 template <class T>
@@ -85,8 +85,8 @@ void Vector<T>::insert(int idx, T x) {
     for (int i = c - 1; i > idx; *(arr + i) = *(arr + i - 1), i--)
         ;
     *(arr + idx) = x;
+    s++;
 }
-
 template <class T>
 void Vector<T>::push_back(T x) {
     int i = c - 1;
@@ -114,6 +114,10 @@ void Vector<T>::put(int idx, T x) {
     while (idx >= c) {
         resize(2 * c);
     }
+
+    if (arr[idx] == def) {
+        s++;
+    }
     *(arr + idx) = x;
 }
 
@@ -125,9 +129,13 @@ void Vector<T>::delete_at(int idx) {
 }
 
 template <class T>
-void Vector<T>::delete_all(T x) {
-    for (int i = 0; i < c; (*(arr + i) != x) ? []() {}() : delete_at(i), i++)
-        ;
+void Vector<T>::delete_item(T x) {
+    for (int i = 0; i < c; i++) {
+        if (*(arr + i) == x) {
+            delete_at(i);
+            return;
+        }
+    }
 }
 
 template <class T>
@@ -151,7 +159,6 @@ int Vector<T>::find(T x) {
     }
     return -1;
 }
-#endif
 
 template <class T>
 void Vector<T>::resize(int n) {
@@ -164,3 +171,5 @@ void Vector<T>::resize(int n) {
     c = n;
     arr = t;
 }
+
+#endif
