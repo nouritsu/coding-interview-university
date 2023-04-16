@@ -41,7 +41,7 @@ int Stack<T>::capacity() {
 
 template <class T>
 int Stack<T>::size() {
-    return top;
+    return top + 1;
 }
 
 template <class T>

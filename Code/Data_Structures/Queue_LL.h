@@ -5,10 +5,10 @@
 #include "Queue_ARR.h"
 
 template <class T>
-class Queue_LL {
+class QueueLL {
    public:
-    Queue_LL();   // constructor
-    ~Queue_LL();  // destructor
+    QueueLL();   // constructor
+    ~QueueLL();  // destructor
 
     int size();       // returns size of queue
     bool is_empty();  // returns true if queue is empty
@@ -24,31 +24,31 @@ class Queue_LL {
 };
 
 template <class T>
-Queue_LL<T>::Queue_LL() {
+QueueLL<T>::QueueLL() {
     head = nullptr;
     tail = nullptr;
     s = 0;
 }
 
 template <class T>
-Queue_LL<T>::~Queue_LL() {
+QueueLL<T>::~QueueLL() {
     for (int i = 0; i < s; i++) {
         dequeue();
     }
 }
 
 template <class T>
-int Queue_LL<T>::size() {
+int QueueLL<T>::size() {
     return s;
 }
 
 template <class T>
-bool Queue_LL<T>::is_empty() {
+bool QueueLL<T>::is_empty() {
     return s == 0;
 }
 
 template <class T>
-void Queue_LL<T>::enqueue(T x) {
+void QueueLL<T>::enqueue(T x) {
     Node<T> *n = new Node<T>(x);
     if (!tail) {
         head = n;
@@ -62,7 +62,7 @@ void Queue_LL<T>::enqueue(T x) {
 }
 
 template <class T>
-T Queue_LL<T>::dequeue() {
+T QueueLL<T>::dequeue() {
     if (!head) {
         throw;
     }
@@ -78,7 +78,7 @@ T Queue_LL<T>::dequeue() {
 }
 
 template <class T>
-void Queue_LL<T>::print() {
+void QueueLL<T>::print() {
     Node<T> *c = head;
 
     std::cout << "<-- | ";

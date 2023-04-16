@@ -64,7 +64,7 @@ bool LinkedList<T>::is_empty() {
 template <class T>
 void LinkedList<T>::print() {
     Node<T> *c;
-    std::cout << "[ ";
+    std::cout << "| ";
 
     c = head;
     for (int i = 0; i < s; i++) {
@@ -75,7 +75,7 @@ void LinkedList<T>::print() {
         }
         std::cout << "<-> ";
     }
-    std::cout << "] (Size: " << s << ')' << std::endl;
+    std::cout << "| (Size: " << s << ')' << std::endl;
 }
 
 template <class T>

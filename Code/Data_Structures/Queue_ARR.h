@@ -2,10 +2,10 @@
 #define QUEUE_ARR_H
 
 template <class T>
-class Queue_ARR {
+class QueueARR {
    public:
-    Queue_ARR(int capacity);
-    ~Queue_ARR();
+    QueueARR(int capacity);
+    ~QueueARR();
 
     int size();       // returns size of queue
     int capacity();   // returns capacity of internal array
@@ -23,7 +23,7 @@ class Queue_ARR {
 };
 
 template <class T>
-Queue_ARR<T>::Queue_ARR(int capacity) {
+QueueARR<T>::QueueARR(int capacity) {
     arr = new T[capacity];
     for (int i = 0; i < capacity; *(arr + i) = (T)0, i++)
         ;
@@ -33,32 +33,32 @@ Queue_ARR<T>::Queue_ARR(int capacity) {
 }
 
 template <class T>
-Queue_ARR<T>::~Queue_ARR() {
+QueueARR<T>::~QueueARR() {
     delete[] arr;
 }
 
 template <class T>
-int Queue_ARR<T>::size() {
+int QueueARR<T>::size() {
     return s;
 }
 
 template <class T>
-int Queue_ARR<T>::capacity() {
+int QueueARR<T>::capacity() {
     return c;
 }
 
 template <class T>
-bool Queue_ARR<T>::is_empty() {
+bool QueueARR<T>::is_empty() {
     return s == 0;
 }
 
 template <class T>
-bool Queue_ARR<T>::is_full() {
+bool QueueARR<T>::is_full() {
     return s == c;
 }
 
 template <class T>
-void Queue_ARR<T>::enqueue(T x) {
+void QueueARR<T>::enqueue(T x) {
     if (is_full()) {
         throw;
     }
@@ -67,7 +67,7 @@ void Queue_ARR<T>::enqueue(T x) {
 }
 
 template <class T>
-T Queue_ARR<T>::dequeue() {
+T QueueARR<T>::dequeue() {
     T t = arr[0];
     for (int i = 0; i < c - 1; *(arr + i) = *(arr + i + 1), i++)
         ;
@@ -77,7 +77,7 @@ T Queue_ARR<T>::dequeue() {
 }
 
 template <class T>
-void Queue_ARR<T>::print() {
+void QueueARR<T>::print() {
     std::cout << "<-- [ ";
     for (int i = 0; i < s; i++) {
         std::cout << *(arr + i) << ' ';
