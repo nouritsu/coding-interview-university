@@ -1,3 +1,6 @@
+# About my fork
+I've been studying off this repository and implementing my own solutions in various languages which can be found in the Code directory.  
+
 # Coding Interview University
 
 > I originally created this as a short to-do list of study topics for becoming a software engineer,
